@@ -1,69 +1,92 @@
 # Youtube-Analaysis
 
-Abstract
---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-This project focuses on analyzing YouTube data using data science techniques to gain valuable insights into user behavior, content trends, and performance metrics. The objective is to identify and analyze the factors that impact likes, subscribers, and views on YouTube, providing content creators with data-driven solutions to enhance their channel's popularity and expand their viewership.
+# 🎥 YouTube Channel Analysis
 
-I. Introduction
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Many YouTube content creators face challenges in gaining likes, subscribers, and views on their channels. Understanding the factors that influence video performance and user engagement is crucial for channel growth. This project aims to identify and analyze these factors, providing data-driven solutions for content creators to enhance their channel's popularity.
+This project performs **YouTube Channel Analysis** using the **YouTube Data API v3**. It fetches real-time channel statistics such as **subscriber count, total views, and video count**, and generates insights through **data visualization** and **natural language processing (NLP)**.
 
-II. Dataset Description
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The YouTube dataset, accessed through the YouTube API key, allows for the exploration of the platform's dynamic nature, capturing the latest trends and patterns. Leveraging the YouTube API key, we can explore valuable insights for content creators, marketers, and platform administrators to make data-driven decisions, optimize strategies, and improve user experiences.
+![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)
+![YouTube Data API](https://img.shields.io/badge/YouTube-Data%20API-red.svg)
+![Pandas](https://img.shields.io/badge/Pandas-Data%20Analysis-green.svg)
+![Matplotlib](https://img.shields.io/badge/Matplotlib-Visualization-blue.svg)
+![NLP](https://img.shields.io/badge/NLP-WordCloud-yellow.svg)
 
-III. Data Preprocessing
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Data preprocessing involves cleaning, integrating, transforming, selecting relevant features, detecting outliers, and normalizing the data. These steps ensure data accuracy, compatibility, efficiency, and integrity, enabling content creators to gain valuable insights and make informed decisions.
+---
 
-IV. Descriptive Statistics
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Descriptive statistics provide key insights into the dataset, summarizing measures of central tendency, variability, distribution shape, percentiles, and outliers. These statistics give content creators a clear understanding of typical values, spread, distribution shape, and exceptional data points.
+## 📑 Features
+- **Real-Time Channel Stats**: Extracts data such as subscriber count, views, total videos, and playlist IDs.
+- **Data Visualization**: Generates bar charts and word clouds to visualize key insights.
+- **NLP Integration**: Creates word clouds for video metadata analysis.
+- **Multi-Channel Support**: Compare multiple YouTube channels at once.
 
-V. Visualization Techniques
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Visualization techniques, such as bar charts, scatter plots, histograms, bubble plots, and distribution plots, provide a visual representation of the dataset. These visualizations aid in understanding trends, patterns, and relationships within the data.
+---
 
-VI. Correlation Analysis
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Correlation analysis examines relationships between different variables in the dataset, such as likes counts, views count, duration, and views. Understanding these correlations helps content creators optimize video content and viewer engagement.
+## 📂 Project Structure
 
-VII. Performance Analysis
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-The project analyzes the impact of video durations, content preferences, and viewer engagement on likes and views. By optimizing video length, creating content aligned with viewer interests, and considering influential factors, content creators can attract more likes, subscribers, and views.
 
-VIII. Future Content Prediction
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Developing a predictive model to forecast the performance of upcoming YouTube content based on factors like video duration, upload day, and historical data trends. This model provides content creators with insights into expected likes, views, and engagement, empowering effective content planning and strategy optimization.
+---
 
-IX. Data Preparation
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Data preparation involves cleaning, handling missing values, engineering new features, and normalizing data. These steps ensure that the data is suitable for analysis and model training, providing accurate insights about future content performance.
+## 🚀 How to Run the Project
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/ASVAHINI/youtube-analysis.git
+Install the required dependencies:
+sh
+Copy
+Edit
+pip install -r requirements.txt
+Open the Jupyter Notebook:
+sh
+Copy
+Edit
+jupyter notebook "Youtube analysis.ipynb"
+Run each cell to execute the analysis.
+🧰 Requirements
+Python 3.8 or higher
+pandas, matplotlib, seaborn
+wordcloud, nltk
+google-api-python-client
+Install the required packages using:
 
-X. ML Algorithms
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Two machine learning algorithms, linear regression and random forest, are employed for analysis. These algorithms help understand the factors influencing video popularity, empowering content creators to enhance their channel's performance.
+sh
+Copy
+Edit
+pip install pandas matplotlib seaborn wordcloud nltk google-api-python-client
+📊 Sample Code
+python
+Copy
+Edit
+# Import required libraries
+from googleapiclient.discovery import build
+import pandas as pd
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
 
-XI. Model Training
------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Models are trained using input data (features) such as duration and publish day, and target variables (views and likes). The goal is to accurately predict the number of views and likes based on the video's characteristics. The models learn patterns and relationships during the training process.
+# YouTube Data API initialization
+api_key = 'YOUR_API_KEY'
+youtube = build('youtube', 'v3', developerKey=api_key)
 
-XII. Model Evaluation
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Evaluation metrics, including mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and R-squared (R2) score, are employed to assess model performance.
+# Fetch channel statistics
+channel_ids = ['UC5EQWvy59VeHPJz8mDALPxg']
+request = youtube.channels().list(part="snippet,contentDetails,statistics", id=",".join(channel_ids))
+response = request.execute()
+🛡️ License
+This project is licensed under the MIT License. See the LICENSE file for more details.
 
-XIII. Comparison with Channels
----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Several YouTube channels are compared to understand their performance metrics, helping identify successful strategies and contributing factors.
+💡 Future Improvements
+Implement real-time video analysis.
+Add sentiment analysis for video comments.
+Deploy as a web-based dashboard.
 
-XIV. Dashboard
+
+
+Dashboard
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 An interactive dashboard using Excel is developed for visualizing and exploring the YouTube dataset. Content creators can navigate through various metrics, charts, and visualizations.
 
 ![image](https://github.com/user-attachments/assets/eeae42c3-7f4d-42c0-846b-d804d379e8b0)
 
 
-XV. Sample Output
+ Sample Output
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ![image](https://github.com/user-attachments/assets/8b78b6b5-4530-422b-ba12-52d2c09bf053)
 
